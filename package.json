@@ -1,0 +1,25 @@
+{
+    "name": "auto-lotto",
+    "version": "0.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "prettier": "^2.2.1"
+    },
+    "prettier": {
+        "arrowParens": "avoid",
+        "semi": false,
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 4
+    },
+    "dependencies": {
+        "aico": "^0.1.1",
+        "cheerio": "^1.0.0-rc.5",
+        "chrome-finder": "^1.0.7",
+        "iconv-lite": "^0.6.2",
+        "phin": "^3.5.1",
+        "puppeteer-core": "^7.1.0"
+    }
+}
