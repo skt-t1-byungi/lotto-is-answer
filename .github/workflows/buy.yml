@@ -5,7 +5,11 @@ on:
             - created
 jobs:
     buy:
-        # if: ${{ github.event.issue.number == 1 && github.event.issue.user.login == 'skt-t1-byungi' && contains(github.event.issue.body, '/run')}}
+        if: ${{ github.event.issue.number == 1 && github.event.issue.user.login == 'skt-t1-byungi' && contains(github.event.comment.body, '/run')}}
         runs-on: ubuntu-latest
         steps:
-            - run: echo ${{ toJSON(github) }}
+            - uses: actions/checkout@v2.3.4
+            - uses: actions/setup-node@v2.1.5
+            - run: |
+                  npm install
+                  node buy.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_ID }} url=${{ secrets.LOTTO_SLACK_URL }} amount=1
