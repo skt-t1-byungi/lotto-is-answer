@@ -1,0 +1,16 @@
+name: on_comment
+on:
+    issue_comment:
+        types:
+            - created
+jobs:
+    on_comment:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                  if ${{ github.event.issue.number == 1 && github.event.issue.user.login == 'skt-t1-byungi' && contains(github.event.comment.body, '/run') }} ; then
+                    exit 0
+                  else
+                    echo Not allowed
+                    exit 1
+                  fi
