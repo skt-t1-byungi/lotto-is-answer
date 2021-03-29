@@ -14,4 +14,8 @@ jobs:
                   node-version: 15
             - run: |
                   npm install
-                  node buy.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }} amount=1
+                  node buy.js id=$LOTTO_ID pw=$LOTTO_PW url=$LOTTO_SLACK_URL amount=1
+              env:
+                  LOTTO_ID: ${{ secrets.LOTTO_ID }}
+                  LOTTO_PW: ${{ secrets.LOTTO_PW }}
+                  LOTTO_SLACK_URL: ${{ secrets.LOTTO_SLACK_URL }}
