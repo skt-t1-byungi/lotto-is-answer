@@ -1,0 +1,8 @@
+name: buy
+on: [issue_comment]
+jobs:
+    buy:
+        if: ${{ github.event.issue.number == 1 && github.event.issue.user.login == 'skt-t1-byungi' && contains(github.event.issue.body, '/run')}}
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo 1
