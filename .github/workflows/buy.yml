@@ -7,7 +7,7 @@ on:
                 description: 구매수
                 default: '1'
     schedule:
-        - cron: '30 13 * * 5'
+        - cron: '30 4 * * 5' # kst, 1시반
 jobs:
     buy:
         runs-on: ubuntu-latest
