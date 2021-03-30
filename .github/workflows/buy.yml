@@ -1,8 +1,5 @@
 name: buy
-on:
-    workflow_run:
-        workflows: ['on_comment']
-        types: [completed]
+on: workflow_dispatch
 jobs:
     buy:
         runs-on: ubuntu-latest
