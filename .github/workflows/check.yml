@@ -7,10 +7,11 @@ jobs:
     check:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2.3.4
-            - uses: actions/setup-node@v2.1.5
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 15
+                  node-version: 18
+                  cache: 'npm'
             - run: |
                   npm install
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
