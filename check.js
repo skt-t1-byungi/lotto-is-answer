@@ -28,7 +28,7 @@ await send(
 [로또당첨현황]
 ${
     buys.length
-        ? buys.map(o => `\t-구매날짜: ${o.date} | 수량: ${o.amount} | 결과: ${o.result}`).join('\r\n')
+        ? buys.map(o => `\t - 구매날짜: ${o.date} | 수량: ${o.amount} | 결과: ${o.result}`).join('\r\n')
         : '\t- 구매기록 없음'
 }
 

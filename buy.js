@@ -69,7 +69,10 @@ if (json.result.resultCode !== '100') {
     await send(`
 [로또구매] 구매에 실패했습니다.
 ---
-디버그 응답: ${JSON.stringify(json, null, 2)}
+디버그 응답: 
+${'```'}
+${JSON.stringify(json, null, 2)}
+${'```'}
 ---
 `)
     process.exit(1)
