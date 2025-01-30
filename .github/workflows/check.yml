@@ -8,11 +8,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version: 18
                   cache: 'npm'
             - run: |
-                  npm install
+                  npm ci
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
             - uses: gautamkrishnar/keepalive-workflow@v1 # prevent workflow from going idle
