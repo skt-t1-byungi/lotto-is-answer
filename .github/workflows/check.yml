@@ -15,4 +15,4 @@ jobs:
             - run: |
                   npm ci
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
-            - uses: gautamkrishnar/keepalive-workflow@v1 # prevent workflow from going idle
+            - uses: entepotenz/keep-github-actions-alive-min-dependencies@v1
