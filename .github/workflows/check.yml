@@ -20,10 +20,4 @@ jobs:
                   pnpm install --frozen-lockfile
                   pnpm exec puppeteer browsers install chrome
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
-            - if: failure()
-              uses: actions/upload-artifact@v4
-              with:
-                  name: check-login-debug-${{ github.run_id }}
-                  path: artifacts
-                  if-no-files-found: ignore
             - uses: entepotenz/keep-github-actions-alive-min-dependencies@v1
