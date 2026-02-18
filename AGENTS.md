@@ -4,7 +4,7 @@ Korean lottery (동행복권) automation. Puppeteer + GitHub Actions + Slack.
 
 ## Setup
 
-Node 18+, `npm ci`
+Node 18+, `pnpm install`
 
 **Secrets** (repo settings):
 - `LOTTO_ID`, `LOTTO_PW` - 동행복권 credentials
