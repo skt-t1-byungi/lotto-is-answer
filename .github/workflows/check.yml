@@ -2,7 +2,7 @@ name: check
 on:
     workflow_dispatch:
     schedule:
-        - cron: '0 4 * * 1,5' # kst, 1시
+        - cron: "0 4 * * 1,5" # kst, 1시
 jobs:
     check:
         runs-on: ubuntu-latest
@@ -14,7 +14,7 @@ jobs:
             - uses: actions/setup-node@v6
               with:
                   node-version: 22
-                  cache: 'pnpm'
+                  cache: "pnpm"
                   cache-dependency-path: pnpm-lock.yaml
             - run: |
                   pnpm install --frozen-lockfile
