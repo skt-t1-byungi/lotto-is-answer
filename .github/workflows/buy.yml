@@ -23,4 +23,5 @@ jobs:
                   cache-dependency-path: pnpm-lock.yaml
             - run: |
                   pnpm install --frozen-lockfile
+                  pnpm exec puppeteer browsers install chrome
                   node buy.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }} amount=${{ github.event.inputs.amount || '5'}}

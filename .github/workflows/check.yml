@@ -18,5 +18,6 @@ jobs:
                   cache-dependency-path: pnpm-lock.yaml
             - run: |
                   pnpm install --frozen-lockfile
+                  pnpm exec puppeteer browsers install chrome
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
             - uses: entepotenz/keep-github-actions-alive-min-dependencies@v1
