@@ -25,3 +25,9 @@ jobs:
                   pnpm install --frozen-lockfile
                   pnpm exec puppeteer browsers install chrome
                   node buy.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }} amount=${{ github.event.inputs.amount || '5'}}
+            - if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: buy-login-debug-${{ github.run_id }}
+                  path: .artifacts
+                  if-no-files-found: ignore
