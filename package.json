@@ -3,6 +3,7 @@
     "name": "lotto-is-answer",
     "version": "0.0.0",
     "license": "MIT",
+    "packageManager": "pnpm@9.15.5",
     "type": "module",
     "devDependencies": {
         "prettier": "^3.5.3"
@@ -15,10 +16,8 @@
         "tabWidth": 4
     },
     "dependencies": {
-        "aico": "^1.0.1",
         "cheerio": "^1.1.0",
         "iconv-lite": "^0.6.3",
-        "phin": "^3.7.1",
         "puppeteer": "^24.10.1"
     }
 }
