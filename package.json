@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "cheerio": "^1.1.0",
+        "dayjs": "^1.11.19",
         "iconv-lite": "^0.6.3",
         "puppeteer": "^24.10.1"
     }

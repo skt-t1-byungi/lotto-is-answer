@@ -11,6 +11,9 @@ importers:
       cheerio:
         specifier: ^1.1.0
         version: 1.2.0
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       iconv-lite:
         specifier: ^0.6.3
         version: 0.6.3
@@ -167,6 +170,9 @@ packages:
   data-uri-to-buffer@6.0.2:
     resolution: {integrity: sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==}
     engines: {node: '>= 14'}
+
+  dayjs@1.11.19:
+    resolution: {integrity: sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -666,6 +672,8 @@ snapshots:
   css-what@6.2.2: {}
 
   data-uri-to-buffer@6.0.2: {}
+
+  dayjs@1.11.19: {}
 
   debug@4.4.3:
     dependencies:
