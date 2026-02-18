@@ -6,13 +6,17 @@ on:
 jobs:
     check:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/checkout@v6
+            - uses: pnpm/action-setup@v4
+            - uses: actions/setup-node@v6
               with:
                   node-version: 18
-                  cache: 'npm'
+                  cache: 'pnpm'
+                  cache-dependency-path: pnpm-lock.yaml
             - run: |
-                  npm ci
+                  pnpm install --frozen-lockfile
                   node check.js id=${{ secrets.LOTTO_ID }} pw=${{ secrets.LOTTO_PW }} url=${{ secrets.LOTTO_SLACK_URL }}
             - uses: entepotenz/keep-github-actions-alive-min-dependencies@v1
