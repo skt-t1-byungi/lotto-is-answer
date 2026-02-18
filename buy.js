@@ -3,6 +3,7 @@ import createCrawler from './lib/createCrawler.js'
 import parseArgvOrExit from './lib/parseArgvOrExit.js'
 import createSlackWebhookSender from './lib/createSlackWebhookSender.js'
 import formatMoney from './lib/formatMoney.js'
+import getBalance from './lib/getBalance.js'
 
 const {
     id,
@@ -18,9 +19,7 @@ const {
 const send = createSlackWebhookSender(url)
 const crawler = await createCrawler(id, pw)
 
-const money = +(
-    (await crawler.request({ url: '/mypage/selectUserMndp.do', parse: 'json' }))?.data?.userMndp?.totalAmt ?? 0
-)
+const money = await getBalance(crawler)
 let amount = Math.min(+reqAmt, Math.floor(money / 1000))
 
 if (amount <= 0) {
@@ -29,9 +28,7 @@ if (amount <= 0) {
     )
     process.exit(1)
 }
-if (amount < +reqAmt) {
-    await send(`[로또구매] 잔액 부족으로 ${amount}장만 구매합니다.`)
-}
+if (amount < +reqAmt) await send(`[로또구매] 잔액 부족으로 ${amount}장만 구매합니다.`)
 
 const $ = await crawler.html({ url: 'https://ol.dhlottery.co.kr/olotto/game/game645.do' })
 const json = await crawler.request({
@@ -66,5 +63,14 @@ if (json.result.resultCode !== '100') {
 }
 
 await send(`[로또구매] ${amount}장 구매 완료 (${json.result.issueDay})
-${json.result.arrGameChoiceNum.map(s => `\t- ${s.split('|').slice(1, 7).join(',')}`).join('\n')}
+${json.result.arrGameChoiceNum
+    .map(
+        s =>
+            `\t- ${s
+                .split('|')
+                .slice(1, 7)
+                .map(v => (+v > 45 ? v.slice(0, -1) : v))
+                .join(',')}`,
+    )
+    .join('\n')}
 잔액: ${formatMoney(money - amount * 1000)}원`)
